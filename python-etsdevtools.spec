@@ -19,6 +19,7 @@ Requires: 	python-numpy >= 1.1.0
 Requires:	python-traitsui >= 4.0.0
 BuildRequires:	python-setuptools >= 0.6c8
 BuildRequires:	python-numpy-devel >= 1.1.0
+BuildRequires:	python-sphinx
 
 %description
 The etsdevtools project includes a set of packages that can be used
