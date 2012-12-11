@@ -1,22 +1,13 @@
 %define	module	etsdevtools
-%define name	python-%{module}
-%define version	4.0.0
-%define	rel		2
-%if %mdkversion < 201100
-%define release	%mkrel %{rel}
-%else
-%define	release %{rel}
-%endif
 
-Summary:	Enthought Tool Suite - tools to support Python development
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Summary:	Enthought Tool Suite - etsdevtools project
+Name:		python-%{module}
+Version:	4.0.0
+Release:	2
 Source0:	http://www.enthought.com/repo/ETS/%{module}-%{version}.tar.gz
 License:	BSD
 Group: 		Development/Python
-Url:		https://github.com/enthought/etsdevtools/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Url:		http://code.enthought.com/projects/dev_tools.php
 BuildArch:	noarch
 Obsoletes:	python-enthought-etsdevtools
 Requires:	python-docutils
@@ -24,8 +15,8 @@ Requires: 	python-numpy >= 1.1.0
 Requires:	python-traitsui >= 4.0.0
 BuildRequires:	python-setuptools >= 0.6c8
 BuildRequires:	python-numpy-devel >= 1.1.0
-BuildRequires:	python-setupdocs >= 1.0.5
 BuildRequires:	python-sphinx
+BuildRequires:  pkgconfig(lapack)
 
 %description
 The etsdevtools project includes a set of packages that can be used
@@ -49,18 +40,23 @@ debugging, testing, and inspecting code.
 %setup -q -n %{module}-%{version}
 
 %build
+
 %__python setup.py build
-%__python setup.py build_docs
+pushd docs
+make html
+popd
 
 %install
-%__rm -rf %{buildroot}
-PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot} 
+PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot} --record=FILE_LIST
+sed -i 's/.*egg-info$//' FILE_LIST
 
-%clean
-%__rm -rf %{buildroot}
+%files -f FILE_LIST
+%doc *.txt *.rst examples/ docs/build/html
 
-%files
-%defattr(-,root,root)
-%doc *.txt *.rst examples/ build/docs/html
-%_bindir/e*
-%py_sitedir/%{module}*
+
+
+%changelog
+* Thu Jul 07 2011 Lev Givon <lev@mandriva.org> 4.0.0-1
++ Revision: 689215
+- import python-etsdevtools
+
