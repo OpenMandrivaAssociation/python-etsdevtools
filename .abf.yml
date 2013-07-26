@@ -1,2 +1,4 @@
+removed_sources:
+  etsdevtools-4.0.0.tar.gz: 0de3fb0d4b1c23429ce591b9755489ac4addeedd
 sources:
-  "etsdevtools-4.0.0.tar.gz": 0de3fb0d4b1c23429ce591b9755489ac4addeedd
+  etsdevtools-4.0.2.tar.gz: 70885618c009fbc4a694b819f3c60a304d78075e

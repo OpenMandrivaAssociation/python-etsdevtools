@@ -2,9 +2,9 @@
 
 Summary:	Enthought Tool Suite - etsdevtools project
 Name:		python-%{module}
-Version:	4.0.0
-Release:	2
-Source0:	http://www.enthought.com/repo/ETS/%{module}-%{version}.tar.gz
+Version:	4.0.2
+Release:	1
+Source0:	https://www.enthought.com/repo/ets/etsdevtools-%{version}.tar.gz
 License:	BSD
 Group: 		Development/Python
 Url:		http://code.enthought.com/projects/dev_tools.php
@@ -59,4 +59,5 @@ sed -i 's/.*egg-info$//' FILE_LIST
 * Thu Jul 07 2011 Lev Givon <lev@mandriva.org> 4.0.0-1
 + Revision: 689215
 - import python-etsdevtools
+
 
