@@ -7,7 +7,7 @@ Release:	2
 Source0:	https://www.enthought.com/repo/ets/etsdevtools-%{version}.tar.gz
 License:	BSD
 Group: 		Development/Python
-Url:		http://code.enthought.com/projects/dev_tools.php
+Url:		https://code.enthought.com/projects/dev_tools.php
 BuildArch:	noarch
 Obsoletes:	python-enthought-etsdevtools
 Requires:	python-docutils
